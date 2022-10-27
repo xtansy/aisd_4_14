@@ -3,12 +3,20 @@ package com.company;
 import java.util.*;
 
 public class TaskClass {
+
+    static private void doubleWordSplit(String word,  List<String> res) {
+        for(int i = 0; i < word.length() - 1; i += 2){
+            res.add(word.charAt(i) + String.valueOf(word.charAt(i + 1)));
+        }
+    }
      static private List<String> doubleStrSplit(String str) {
         List<String> res = new ArrayList<>();
-        for(int i = 0; i < str.length() - 1; i += 2){
-            res.add(str.charAt(i) + String.valueOf(str.charAt(i+1)));
-        }
+        String[] strArr = str.split(" ");
+         for (String s : strArr) {
+             TaskClass.doubleWordSplit(s, res);
+         }
 
+         System.out.println("double word String Array: " + res);
         return res;
     }
 
